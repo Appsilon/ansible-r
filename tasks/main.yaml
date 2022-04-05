@@ -1,0 +1,19 @@
+---
+
+- name: "include variables"
+  ansible.builtin.include_vars: "{{ item }}"
+  with_first_found:
+    - "_{{ ansible_distribution_release }}.yml"
+    - "_{{ ansible_distribution | lower }}.yml"
+    - _default.yml
+
+- name: "create download directory"
+  ansible.builtin.file:
+    path: "{{ downloads_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "include tasks"
+  ansible.builtin.include_tasks: '{{ ansible_os_family | lower }}/main.yaml'

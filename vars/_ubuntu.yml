@@ -1,2 +1,7 @@
 # vars file
 ---
+
+system_dependencies:
+  - gfortran
+
+r_download_url: "https://cdn.rstudio.com/r/ubuntu-{{ ansible_lsb.release|replace('.','') }}/pkgs"
