@@ -1,0 +1,30 @@
+---
+
+- name: "install | install dependencies"
+  ansible.builtin.apt:
+    name: "{{ system_dependencies }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  register: result
+  until: result is not failed
+  retries: 5
+  delay: 5
+
+- name: "install | r-version (download)"
+  ansible.builtin.get_url:
+    url: "{{ r_download_url }}/r-{{ item }}_1_{{ machine_map[ansible_machine] }}.deb"
+    dest: "{{ downloads_path }}/r-{{ item }}_1_amd64.deb"
+    mode: 0644
+    owner: root
+    group: root
+  loop: "{{ r_versions }}"
+
+- name: "install | r-version"
+  ansible.builtin.apt:
+    deb: "{{ downloads_path }}/r-{{ item }}_1_amd64.deb"
+  loop: "{{ r_versions }}"
+  register: result
+  until: result is not failed
+  retries: 5
+  delay: 5

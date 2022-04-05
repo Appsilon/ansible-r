@@ -1,2 +1,15 @@
 # vars file
 ---
+
+downloads_path: /var/lib/ansible/downloads
+r_versions:
+  - 4.1.0
+  - 4.0.0
+  - 3.6.3
+  - 3.5.3
+  - 3.5.0
+machine_map:
+  i686: i386
+  i386: i386
+  x86_64: amd64
+  amd64: amd64
