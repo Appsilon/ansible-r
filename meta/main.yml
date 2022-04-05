@@ -2,7 +2,7 @@
 ---
 galaxy_info:
   namespace: appsilon
-  role_name: r_lang
+  role_name: r_language
   author: Appsilon
   company: Appsilon
   description: Set up multiple versions of R language
@@ -15,5 +15,4 @@ galaxy_info:
   galaxy_tags:
     - development
     - system
-    - R
 dependencies: []
