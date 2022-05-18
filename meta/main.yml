@@ -1,9 +1,8 @@
 # meta file
 ---
 galaxy_info:
-  namespace: appsilon
   role_name: r_language
-  author: Appsilon
+  author: appsilon
   company: Appsilon
   description: Set up multiple versions of R language
   license: MIT
