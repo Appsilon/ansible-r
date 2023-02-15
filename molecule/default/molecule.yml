@@ -4,7 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - &instance
+    name: instance-r
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
@@ -13,15 +14,10 @@ platforms:
       - SYS_ADMIN
     pre_build_image: true
     platform: linux/amd64
-  - name: instance-rh
+  - <<: *instance
+    name: instance-r-rh
     image: "registry.access.redhat.com/${MOLECULE_DISTRO:-ubi8}/ubi-init"
     command: "/usr/sbin/init"
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
-    pre_build_image: true
-    platform: linux/amd64
 provisioner:
   name: ansible
   playbooks:

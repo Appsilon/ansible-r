@@ -45,7 +45,7 @@ jobs:
           - distro: ubuntu2004
             ansible-version: '>=2.11.5'
           - distro: ubi8
-            platform: instance-rh
+            platform: instance-r-rh
             ansible-version: '>=2.11.5'
 
     steps:
@@ -64,7 +64,7 @@ jobs:
 
       - name: Run Molecule tests
         run: |
-          molecule test --platform-name ${MOLECULE_PLATFORM:-instance}
+          molecule test --platform-name ${MOLECULE_PLATFORM:-instance-r}
         env:
           ANSIBLE_FORCE_COLOR: '1'
           ANSIBLE_VERBOSITY: '2'
