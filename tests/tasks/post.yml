@@ -1,14 +1,12 @@
 # post test file
 ---
 
-- name: "test R installation"
+- name: Test R installation
   ansible.builtin.shell: >
     /opt/R/{{ item }}/bin/R --version 2>&1
     | grep -q '{{ item }}'
     && (echo 'Version test for {{ item }}: pass' && exit 0)
-    || (echo 'Version test fir {{ item }}: fail' && exit 1)
-  args:
-    warn: false
+    || (echo 'Version test for {{ item }}: fail' && exit 1)
   changed_when: false
   loop: "{{ r_versions }}"
   tags:
