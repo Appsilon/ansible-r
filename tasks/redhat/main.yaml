@@ -1,0 +1,20 @@
+---
+
+- name: "install | r-version (download)"
+  ansible.builtin.get_url:
+    url: "{{ r_download_url }}/R-{{ item }}-1-1.x86_64.rpm"
+    dest: "{{ downloads_path }}/R-{{ item }}-1-1.x86_64.rpm"
+    mode: 0644
+    owner: root
+    group: root
+  loop: "{{ r_versions }}"
+
+- name: "install | r-version"
+  ansible.builtin.dnf:
+    name: "{{ downloads_path }}/R-{{ item }}-1-1.x86_64.rpm"
+    disable_gpg_check: true
+  loop: "{{ r_versions }}"
+  register: result
+  until: result is not failed
+  retries: 5
+  delay: 5
