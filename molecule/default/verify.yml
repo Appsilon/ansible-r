@@ -6,4 +6,4 @@
       include_vars: "{{ playbook_dir }}/../../tests/vars/main.yml"
   tasks:
     - name: include tasks
-      include: "{{ playbook_dir }}/../../tests/tasks/post.yml"
+      include_tasks: "{{ playbook_dir }}/../../tests/tasks/post.yml"
