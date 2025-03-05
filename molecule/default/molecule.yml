@@ -16,8 +16,11 @@ platforms:
     platform: linux/amd64
   - <<: *instance
     name: instance-r-rh
-    image: "registry.access.redhat.com/${MOLECULE_DISTRO:-ubi8}/ubi-init"
+    image: "registry.access.redhat.com/${MOLECULE_DISTRO:-ubi9}/ubi-init"
     command: "/usr/sbin/init"
+    platform: linux/amd64
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
 provisioner:
   name: ansible
   playbooks:
