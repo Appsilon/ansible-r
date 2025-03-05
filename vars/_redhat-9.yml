@@ -1,7 +1,4 @@
 # vars file
 ---
-
-system_dependencies:
-  - gcc-gfortran
   
 r_download_url: "https://cdn.rstudio.com/r/rhel-9/pkgs"
