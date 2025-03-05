@@ -16,11 +16,10 @@ platforms:
     platform: linux/amd64
   - <<: *instance
     name: instance-r-rh
-    ANSIBLE_REMOTE_TMP: /tmp/.ansible/tmp
     image: "registry.access.redhat.com/${MOLECULE_DISTRO:-ubi9}/ubi-init"
     command: "/usr/sbin/init"
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
     user: root
     privileged: true
     platform: linux/amd64
@@ -28,9 +27,6 @@ platforms:
       - SYS_ADMIN
 provisioner:
   name: ansible
-  config_options:
-    defaults:
-      remote_tmp: /tmp/ansible-tmp
   playbooks:
     prepare: prepare.yml
     converge: converge.yml
