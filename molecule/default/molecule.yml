@@ -18,7 +18,6 @@ platforms:
     name: instance-r-rh
     image: "registry.access.redhat.com/${MOLECULE_DISTRO:-ubi9}/ubi-init"
     command: "/usr/sbin/init"
-    platform: linux/amd64
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
 provisioner:
