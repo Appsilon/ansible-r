@@ -21,6 +21,10 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     user: root
+    privileged: true
+    platform: linux/amd64
+    capabilities:
+      - SYS_ADMIN
 provisioner:
   name: ansible
   playbooks:
