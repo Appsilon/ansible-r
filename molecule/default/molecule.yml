@@ -28,6 +28,9 @@ platforms:
       - SYS_ADMIN
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      remote_tmp: /tmp/ansible-tmp
   playbooks:
     prepare: prepare.yml
     converge: converge.yml
