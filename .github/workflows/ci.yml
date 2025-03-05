@@ -47,6 +47,9 @@ jobs:
           - distro: ubi8
             platform: instance-r-rh
             ansible-version: '>=2.11.5'
+          - distro: ubi9
+            platform: instance-r-rh
+            ansible-version: '>=2.11.5'
 
     steps:
       - name: Check out the codebase
