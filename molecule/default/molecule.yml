@@ -20,8 +20,7 @@ platforms:
     command: "/usr/sbin/init"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    capabilities:
-      - SYS_ADMIN
+    user: root
 provisioner:
   name: ansible
   playbooks:
