@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python 3
         uses: actions/setup-python@v3
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
       - name: Install test dependencies
         run: pip install ansible-lint[community,yamllint]
@@ -43,10 +43,10 @@ jobs:
       matrix:
         include:
           - distro: ubuntu2004
-            ansible-version: '>=2.11.5'
           - distro: ubi8
             platform: instance-r-rh
-            ansible-version: '>=2.11.5'
+          - distro: ubi9
+            platform: instance-r-rh
 
     steps:
       - name: Check out the codebase
@@ -57,10 +57,10 @@ jobs:
       - name: Set up Python 3
         uses: actions/setup-python@v3
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
       - name: Install test dependencies
-        run: pip install 'ansible${{ matrix.ansible-version }}' molecule molecule-plugins[docker] docker
+        run: pip install -r requirements.txt
 
       - name: Run Molecule tests
         run: |
