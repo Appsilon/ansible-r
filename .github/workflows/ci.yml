@@ -7,6 +7,7 @@ name: CI
       - main
   schedule:
     - cron: '30 1 * * 3'
+  workflow_dispatch:
 
 jobs:
 
@@ -43,6 +44,8 @@ jobs:
       matrix:
         include:
           - distro: ubuntu2004
+          - distro: ubuntu2204
+          - distro: ubuntu2404
           - distro: ubi8
             platform: instance-r-rh
           - distro: ubi9
