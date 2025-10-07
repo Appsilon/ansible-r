@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python 3
         uses: actions/setup-python@v3
         with:
-          python-version: '3.12'
+          python-version: '3.14'
 
       - name: Install test dependencies
         run: pip install ansible-lint[community,yamllint]
@@ -60,7 +60,7 @@ jobs:
       - name: Set up Python 3
         uses: actions/setup-python@v3
         with:
-          python-version: '3.12'
+          python-version: '3.14'
 
       - name: Install test dependencies
         run: pip install -r requirements.txt
