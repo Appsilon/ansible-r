@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase
-        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26  # v3
 
       - name: Raise GitHub issues for TODOs found
-        uses: alstr/todo-to-issue-action@46584f64f7ddc01de0861d280fa550d5b3a29afc # v4.6.3
+        uses: alstr/todo-to-issue-action@46584f64f7ddc01de0861d280fa550d5b3a29afc  # v4.6.3
         with:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTO_ASSIGN: true
